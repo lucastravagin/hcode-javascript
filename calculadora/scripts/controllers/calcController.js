@@ -19,6 +19,10 @@ class CalcController {
         }, 1000)
     }
 
+    initiButtonsEvents() {
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g")
+    }
+
     setDisplatDateTime() {
         this.displayDate = this.currentDate.toLocaleDateString(this.locale)
         this.displayTime = this.currentDate.toLocaleTimeString(this.locale)
