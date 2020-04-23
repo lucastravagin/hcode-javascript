@@ -153,10 +153,6 @@ class CalcController {
             if (this.isOperator(value)) {
                 //Trocar o Operador
                 this.setLastOperation(value)
-            } else if (isNaN(value)) {
-
-                console.log(value);
-
             } else {
                 this.pushOperation(value)
                 this.setLastNumberToDisplay()
@@ -175,6 +171,10 @@ class CalcController {
             }
 
         }
+    }
+    
+    addDot() {
+        
     }
 
     setError() {
@@ -209,7 +209,7 @@ class CalcController {
                 this.calc()
                 break
             case 'ponto':
-                this.addOperation('.')
+                this.addDot('.')
                 break
 
             case '0':
