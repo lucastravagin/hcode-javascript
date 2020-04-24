@@ -57,9 +57,9 @@ class CalcController {
 
         this.pasteFromClipboard()
 
-        document.querySelectorAll('.btn-ac').forEach( btn => {
+        document.querySelectorAll('.btn-ac').forEach(btn => {
 
-            btn.addEventListener('dblclick', e=> {
+            btn.addEventListener('dblclick', e => {
                 console.log('Ativou o audio')
                 this.toggleAudio()
             })
@@ -123,8 +123,8 @@ class CalcController {
                     break
 
                 case 'c':
-                    if(e.ctrlKey) this.copyToClipboard()
-                break;
+                    if (e.ctrlKey) this.copyToClipboard()
+                    break;
             }
         })
     }
@@ -173,7 +173,13 @@ class CalcController {
     }
 
     getResult() {
-        return eval(this._operation.join(""))
+        try {
+            return eval(this._operation.join(""))
+        } catch (error) {
+            setTimeout(() => {
+                this.setError()
+            }, 1);
+        }
     }
 
     calc() {
@@ -392,7 +398,7 @@ class CalcController {
 
     set displayCalc(value) {
 
-        if(value.toString().length > 10) {
+        if (value.toString().length > 10) {
             this.setError()
             return false
         }
